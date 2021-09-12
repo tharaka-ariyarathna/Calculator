@@ -1,4 +1,4 @@
-package com.kelaniya.uni;
+package com.kelaniya.uni.V1;
 
 import java.util.Scanner;
 
