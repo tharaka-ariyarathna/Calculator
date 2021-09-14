@@ -1,9 +1,10 @@
 package com.kelaniya.uni.V3;
 
+import com.kelaniya.uni.V3.Operation.AddOperation;
+import com.kelaniya.uni.V3.Operation.SubOperation;
+import com.kelaniya.uni.V3.Operation.MulOperation;
+
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.util.List;
 
 public class main {
     public static void main(String[] args) throws IOException {
@@ -31,6 +32,5 @@ public class main {
         }
 
         System.out.println(result);
-
     }
 }
