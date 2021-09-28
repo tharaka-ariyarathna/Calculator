@@ -1,5 +1,6 @@
 package com.kelaniya.uni.V5;
 
+import com.kelaniya.uni.V5.Operation.InvalidOperationException;
 import com.kelaniya.uni.V5.Operation.Operation;
 import com.kelaniya.uni.V5.Operation.OperationFactory;
 import com.kelaniya.uni.V5.input.Inputs;
@@ -27,7 +28,13 @@ public class CalculatorApp {
         String operator = inputs.getOperato();
         double[] numbers = numberRepository.getNumbers();
         Operation operation = operationFactory.getOperator(operator) ;
-        double result = operation.execute(numbers);
+        double result = 0;
+        try {
+            result = operation.execute(numbers);
+        } catch (InvalidOperationException e) {
+            ui.showMessage("error occured\n" + e.getMessage());
+            return;
+        }
         ui.showMessage("result is " + result);
 
     }

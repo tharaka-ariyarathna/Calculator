@@ -18,7 +18,7 @@ public class CommandaLineInputs implements Inputs {
 
         //validating the user operation
         String operator = args[0];
-        if (!(operator.equals("add") || operator.equals("sub") || operator.equals("mul"))) {
+        if (!(operator.equals("add") || operator.equals("sub") || operator.equals("mul") || operator.equals("div"))) {
             System.out.println("Input a valid argument");
             return "";
         }
