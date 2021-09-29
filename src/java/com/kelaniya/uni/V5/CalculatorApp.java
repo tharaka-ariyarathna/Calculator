@@ -4,7 +4,9 @@ import com.kelaniya.uni.V5.Operation.InvalidOperationException;
 import com.kelaniya.uni.V5.Operation.Operation;
 import com.kelaniya.uni.V5.Operation.OperationFactory;
 import com.kelaniya.uni.V5.input.Inputs;
+import com.kelaniya.uni.V5.input.invalidInputException;
 import com.kelaniya.uni.V5.repository.NumberRepository;
+import com.kelaniya.uni.V5.repository.numberRepositoryException;
 import com.kelaniya.uni.V5.ui.UI;
 
 import java.io.IOException;
@@ -25,17 +27,19 @@ public class CalculatorApp {
 
     public void execute() throws IOException {
 
-        String operator = inputs.getOperato();
-        double[] numbers = numberRepository.getNumbers();
-        Operation operation = operationFactory.getOperator(operator) ;
-        double result = 0;
+
         try {
+            String  operator = inputs.getOperato();
+            double[] numbers = numberRepository.getNumbers();
+            Operation operation = operationFactory.getOperator(operator) ;
+            double result ;
             result = operation.execute(numbers);
-        } catch (InvalidOperationException e) {
+            ui.showMessage("result is " + result);
+        } catch (InvalidOperationException | invalidInputException | numberRepositoryException e) {
             ui.showMessage("error occured\n" + e.getMessage());
             return;
         }
-        ui.showMessage("result is " + result);
+
 
     }
 }

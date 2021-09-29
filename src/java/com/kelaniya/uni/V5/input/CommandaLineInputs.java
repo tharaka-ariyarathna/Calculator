@@ -8,21 +8,17 @@ public class CommandaLineInputs implements Inputs {
         this.args = arguments;
     }
 
-    public String getOperato() {
+    public String getOperato() throws invalidInputException {
         //Make sure to validate arguments beforre using
         if (args.length == 0) {
-            System.out.println("Please provide arguments before using");
-            return "";
+            throw new invalidInputException("Please provide arguments before using") ;
         }
-        ;
 
         //validating the user operation
         String operator = args[0];
         if (!(operator.equals("add") || operator.equals("sub") || operator.equals("mul") || operator.equals("div"))) {
-            System.out.println("Input a valid argument");
-            return "";
+            throw new invalidInputException("Input a valid argument") ;
         }
-        ;
 
         return operator;
     }
